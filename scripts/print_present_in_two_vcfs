@@ -1,0 +1,6 @@
+#!/usr/bin/bash
+
+# outputs variants present only in both vcf files
+# usage:
+# ./intersect_variants file1.vcf file2.vcf
+comm -1 -2 <(cut -sf 1,2,4,5 "$1" | tail -n+2 | sort) <(cut -sf 1,2,4,5 "$2" | tail -n+2 | sort)
