@@ -1,0 +1,22 @@
+##SnpEffVersion="5.1f (build 2023-07-21 13:58), by Pablo Cingolani"
+##SnpEffCmd="SnpEff  GRCh38.105 -no-intergenic -no-downstream -no-intron -no-upstream ../Hackathon/BH_1/pipeline-out/filtered_medium.vcf "
+##INFO=<ID=ANN,Number=.,Type=String,Description="Functional annotations: 'Allele | Annotation | Annotation_Impact | Gene_Name | Gene_ID | Feature_Type | Feature_ID | Transcript_BioType | Rank | HGVS.c | HGVS.p | cDNA.pos / cDNA.length | CDS.pos / CDS.length | AA.pos / AA.length | Distance | ERRORS / WARNINGS / INFO' ">
+##INFO=<ID=LOF,Number=.,Type=String,Description="Predicted loss of function effects for this variant. Format: 'Gene_Name | Gene_ID | Number_of_transcripts_in_gene | Percent_of_transcripts_affected'">
+##INFO=<ID=NMD,Number=.,Type=String,Description="Predicted nonsense mediated decay effects for this variant. Format: 'Gene_Name | Gene_ID | Number_of_transcripts_in_gene | Percent_of_transcripts_affected'">
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	TUMOR
+chr11	102335891	.	CTA	C	20.0	PASS	.	.	.
+chr12	49050390	.	A	AG	20.0	PASS	ANN=AG|frameshift_variant|HIGH|KMT2D|ENSG00000167548|transcript|ENST00000301067.12|protein_coding|12/55|c.3197_3198insC|p.Glu1067fs|4416/20635|3197/16614|1066/5537||,AG|frameshift_variant|HIGH|KMT2D|ENSG00000167548|transcript|ENST00000683543.2|protein_coding|12/56|c.3197_3198insC|p.Glu1067fs|4416/20686|3197/16662|1066/5553||,AG|frameshift_variant|HIGH|KMT2D|ENSG00000167548|transcript|ENST00000685166.1|protein_coding|11/54|c.3197_3198insC|p.Glu1067fs|3197/16623|3197/16623|1066/5540||,AG|frameshift_variant|HIGH|KMT2D|ENSG00000167548|transcript|ENST00000692637.1|protein_coding|11/54|c.3197_3198insC|p.Glu1067fs|3197/16611|3197/16611|1066/5536||;LOF=(KMT2D|ENSG00000167548|15|0,27)	.	.
+chr14	105601849	.	CT	C	20.0	PASS	.	.	.
+chr14	105603393	.	GTCAGCCCAACTAGC	G	20.0	PASS	.	.	.
+chr14	105746090	.	G	C	20.0	PASS	.	.	.
+chr14	105746387	.	G	C	20.0	PASS	.	.	.
+chr14	105862774	.	C	T	20.0	PASS	.	.	.
+chr16	3736702	.	T	A	20.0	PASS	ANN=A|missense_variant|MODERATE|CREBBP|ENSG00000005339|transcript|ENST00000262367.10|protein_coding|27/31|c.4508A>T|p.Tyr1503Phe|5305/10790|4508/7329|1503/2442||,A|missense_variant|MODERATE|CREBBP|ENSG00000005339|transcript|ENST00000382070.7|protein_coding|26/30|c.4394A>T|p.Tyr1465Phe|4598/7598|4394/7215|1465/2404||,A|missense_variant|MODERATE|CREBBP|ENSG00000005339|transcript|ENST00000570939.2|protein_coding|22/23|c.3143A>T|p.Tyr1048Phe|3143/3316|3143/3316|1048/1104||WARNING_TRANSCRIPT_INCOMPLETE	.	.
+chr17	7662018	.	AAG	A	20.0	PASS	.	.	.
+chr18	63318118	.	C	T	20.0	PASS	ANN=T|synonymous_variant|LOW|BCL2|ENSG00000171791|transcript|ENST00000333681.5|protein_coding|2/3|c.549G>A|p.Arg183Arg|1431/6881|549/720|183/239||,T|synonymous_variant|LOW|BCL2|ENSG00000171791|transcript|ENST00000398117.1|protein_coding|1/2|c.549G>A|p.Arg183Arg|2011/7461|549/720|183/239||,T|synonymous_variant|LOW|BCL2|ENSG00000171791|transcript|ENST00000589955.2|protein_coding|1/1|c.549G>A|p.Arg183Arg|695/5011|549/618|183/205||	.	.
+chr18	63318683	.	G	A	20.0	PASS	ANN=A|5_prime_UTR_variant|MODIFIER|BCL2|ENSG00000171791|transcript|ENST00000333681.5|protein_coding|2/3|c.-17C>T|||||17|,A|5_prime_UTR_variant|MODIFIER|BCL2|ENSG00000171791|transcript|ENST00000398117.1|protein_coding|1/2|c.-17C>T|||||17|,A|5_prime_UTR_variant|MODIFIER|BCL2|ENSG00000171791|transcript|ENST00000589955.2|protein_coding|1/1|c.-17C>T|||||17|	.	.
+chr18	63319149	.	C	G	20.0	PASS	ANN=G|5_prime_UTR_variant|MODIFIER|BCL2|ENSG00000171791|transcript|ENST00000398117.1|protein_coding|1/2|c.-483G>C|||||483|	.	.
+chr18	63319685	.	C	T	20.0	PASS	ANN=T|5_prime_UTR_variant|MODIFIER|BCL2|ENSG00000171791|transcript|ENST00000333681.5|protein_coding|1/3|c.-798G>A|||||1019|,T|5_prime_UTR_variant|MODIFIER|BCL2|ENSG00000171791|transcript|ENST00000398117.1|protein_coding|1/2|c.-1019G>A|||||1019|	.	.
+chr18	63319736	.	A	G	20.0	PASS	ANN=G|5_prime_UTR_variant|MODIFIER|BCL2|ENSG00000171791|transcript|ENST00000333681.5|protein_coding|1/3|c.-849T>C|||||1070|,G|5_prime_UTR_variant|MODIFIER|BCL2|ENSG00000171791|transcript|ENST00000398117.1|protein_coding|1/2|c.-1070T>C|||||1070|	.	.
+chr3	187743034	.	A	T	20.0	PASS	.	.	.
+chr3	187744734	.	C	G	20.0	PASS	.	.	.
