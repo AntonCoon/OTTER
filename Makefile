@@ -4,7 +4,8 @@ all:
 	$(PYTHON) scripts/cli.py
 
 test:
-	$(PYTHON) main.py --filte-hard example_data/BH_2/
+	# $(PYTHON) main.py --filter-hard example_data/BH_2/
+	$(PYTHON) main.py --filter-medium example_data/BH_2/
 
 .PHONY: clean
 clean:

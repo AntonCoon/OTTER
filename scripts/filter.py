@@ -6,9 +6,13 @@ import scripts.settings as settings
 import importlib
 importlib.reload(settings)
 
-verbose = True
+print(sys.argv)
 
-patient_folder = sys.argv[1]
+verbose = True
+LEVEL = sys.argv[1]
+assert LEVEL in ('--soft', '--hard', '--medium')
+
+patient_folder = sys.argv[2]
 if patient_folder[-1] != '/':
     patient_folder += '/'
 
@@ -39,17 +43,34 @@ for ts in timestamps:
     sp.run(cmd, shell=True, check=True)
     present_in_both_rep_paths.append(both_rep_pres_path)
 
-# from previously selected variants,
-# select only variants that are present in all time points
-cur_tmp_file = present_in_both_rep_paths[0]
-for i in range(1, len(present_in_both_rep_paths)):
-    new_tmp_file = str(settings.TMP_FOLDER) + f'/merged_{i+1}.tsv'
+if LEVEL == '--hard':
+    # from previously selected variants,
+    # select only variants that are present in all time points
+    cur_tmp_file = present_in_both_rep_paths[0]
+    for i in range(1, len(present_in_both_rep_paths)):
+        new_tmp_file = str(settings.TMP_FOLDER) + f'/merged_{i+1}.tsv'
 
-    cmd = f'comm -1 -2 {cur_tmp_file} {present_in_both_rep_paths[i]} > {new_tmp_file}'
-    if verbose:
-        print(cmd)
-    sp.run(cmd, shell=True, check=True)
-    cur_tmp_file = new_tmp_file
+        cmd = f'comm -1 -2 {cur_tmp_file} {present_in_both_rep_paths[i]} > {new_tmp_file}'
+        if verbose:
+            print(cmd)
+        sp.run(cmd, shell=True, check=True)
+        cur_tmp_file = new_tmp_file
+elif LEVEL == '--medium':
+    # from previously selected variants,
+    # select only those present in at least 2 time points...
+    cur_tmp_file = settings.TMP_FOLDER + 'variants_in_at_least_2.tsv'
+
+    # add all pairwise intersections, then do sort | uniq
+    for i in range(len(present_in_both_rep_paths)):
+        for j in range(i + 1, len(present_in_both_rep_paths)):
+            sp.run(f'comm -1 -2 {present_in_both_rep_paths[i]} {present_in_both_rep_paths[j]} >> {cur_tmp_file}', shell=True, check=True)
+
+    present_in_at_least_2_path = settings.TMP_FOLDER + 'variants_in_at_least_2_sort_uniq.tsv'
+    sp.run(f'sort {cur_tmp_file} | uniq > {present_in_at_least_2_path}', shell=True, check=True)
+    cur_tmp_file = present_in_at_least_2_path
+else:
+    print('not implemented')
+    sys.exit(1)
 
 # convert result to vcf
 vcf_output = str(settings.TMP_FOLDER) + 'filtered_hard.vcf'
