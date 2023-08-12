@@ -4,3 +4,4 @@ tags
 **/__pycache__/*
 tmp/*
 **/pipeline-out/*
+.ipynb_checkpoints
