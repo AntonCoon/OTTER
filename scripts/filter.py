@@ -11,6 +11,7 @@ print(sys.argv)
 verbose = True
 LEVEL = sys.argv[1]
 assert LEVEL in ('--soft', '--hard', '--medium')
+LEVEL = LEVEL[2:]
 
 patient_folder = sys.argv[2]
 if patient_folder[-1] != '/':
@@ -43,7 +44,7 @@ for ts in timestamps:
     sp.run(cmd, shell=True, check=True)
     present_in_both_rep_paths.append(both_rep_pres_path)
 
-if LEVEL == '--hard':
+if LEVEL == 'hard':
     # from previously selected variants,
     # select only variants that are present in all time points
     cur_tmp_file = present_in_both_rep_paths[0]
@@ -55,10 +56,11 @@ if LEVEL == '--hard':
             print(cmd)
         sp.run(cmd, shell=True, check=True)
         cur_tmp_file = new_tmp_file
-elif LEVEL == '--medium':
+elif LEVEL == 'medium':
     # from previously selected variants,
     # select only those present in at least 2 time points...
     cur_tmp_file = settings.TMP_FOLDER + 'variants_in_at_least_2.tsv'
+    open(cur_tmp_file, 'w').close()
 
     # add all pairwise intersections, then do sort | uniq
     for i in range(len(present_in_both_rep_paths)):
@@ -72,8 +74,9 @@ else:
     print('not implemented')
     sys.exit(1)
 
+
 # convert result to vcf
-vcf_output = str(settings.TMP_FOLDER) + 'filtered_hard.vcf'
+vcf_output = str(settings.TMP_FOLDER) + f'filtered_{LEVEL}.vcf'
 vcf_columns = "#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	TUMOR".split()
 with open(cur_tmp_file, 'r') as fin, open(vcf_output, 'w') as fout:
     fout.write('\t'.join(vcf_columns) + '\n')
@@ -87,7 +90,7 @@ output_folder = patient_folder + 'pipeline-out/'
 os.makedirs(output_folder, exist_ok=True)
 
 # sort vcf and place it in output folder
-sorted_vcf = output_folder + 'filtered_hard.vcf'
+sorted_vcf = output_folder + f'filtered_{LEVEL}.vcf'
 if verbose:
     print('Sort filtered vcf...')
 sp.run(f'head -n 1 {vcf_output} > {sorted_vcf}', check=True, shell=True)
