@@ -9,7 +9,7 @@ test:
 .PHONY: clean
 clean:
 	rm -f tmp/*
-	rm -f example_data/BH_2/pipeline-out/
+	rm -rf example_data/BH_2/pipeline-out/
 
 .PHONY: tags
 tags:
