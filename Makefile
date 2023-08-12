@@ -20,8 +20,9 @@ test:
 
 .PHONY: clean
 clean:
-	rm -f tmp/*
+	rm -rf tmp/*
 	rm -rf example_data/BH_2/pipeline-out/
+	rm -rf example_data/BH_1/pipeline-out/
 
 .PHONY: cleanall
 cleanall: clean
