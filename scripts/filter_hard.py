@@ -12,6 +12,9 @@ patient_folder = sys.argv[1]
 if patient_folder[-1] != '/':
     patient_folder += '/'
 
+# remove junk from previous runs...
+sp.run(f'rm -rf {settings.TMP_FOLDER}*', shell=True, check=True)
+
 # check how many timestamps we have
 timestamps = []
 for fn in os.listdir(patient_folder):
@@ -28,7 +31,7 @@ for ts in timestamps:
     rep1 = patient_folder + f"ts_{ts}_rep1.vcf"
     rep2 = patient_folder + f"ts_{ts}_rep2.vcf"
 
-    both_rep_pres_path = str(settings.TMP_FOLDER) + f'/both_rep_ts{ts}.tsv'
+    both_rep_pres_path = settings.TMP_FOLDER + f'both_rep_ts{ts}.tsv'
 
     cmd = f'scripts/print_present_in_two_vcfs {rep1} {rep2} > {both_rep_pres_path}'
     if verbose:
@@ -48,11 +51,8 @@ for i in range(1, len(present_in_both_rep_paths)):
     sp.run(cmd, shell=True, check=True)
     cur_tmp_file = new_tmp_file
 
-# convert result to "vcf"
-output_folder = patient_folder + 'pipeline-out/'
-os.makedirs(output_folder, exist_ok=True)
+# convert result to vcf
 vcf_output = str(settings.TMP_FOLDER) + 'filtered_hard.vcf'
-
 vcf_columns = "#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	TUMOR".split()
 with open(cur_tmp_file, 'r') as fin, open(vcf_output, 'w') as fout:
     fout.write('\t'.join(vcf_columns) + '\n')
@@ -62,4 +62,12 @@ with open(cur_tmp_file, 'r') as fin, open(vcf_output, 'w') as fout:
         vcf_fields = [str(x) for x in vcf_fields]
         fout.write('\t'.join(vcf_fields) + '\n')
 
-#
+output_folder = patient_folder + 'pipeline-out/'
+os.makedirs(output_folder, exist_ok=True)
+
+# sort vcf and place it in output folder
+sorted_vcf = output_folder + 'filtered_hard.vcf'
+if verbose:
+    print('Sort filtered vcf...')
+sp.run(f'head -n 1 {vcf_output} > {sorted_vcf}', check=True, shell=True)
+sp.run(f'tail -n+2 {vcf_output} | sort --key=1,1 --key=2n >> {sorted_vcf}', check=True, shell=True)
