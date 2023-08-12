@@ -9,6 +9,7 @@ all:
 	@if test -d bin/snpEff/data/GRCh38.105; then echo reference genome found; else echo Downloading reference... && cd bin/snpEff/ \
 		&& java -jar snpEff.jar download -v GRCh38.105; \
 	fi
+	@rm -f bin/snpEff_latest_core.zip
 	@echo Seems all is fine...
 	@echo
 	@$(PYTHON) scripts/cli.py
@@ -22,7 +23,7 @@ clean:
 	rm -f tmp/*
 	rm -rf example_data/BH_2/pipeline-out/
 
-.PHONY: cleanal
+.PHONY: cleanall
 cleanall: clean
 	rm -rf bin
 	rm -f tags
