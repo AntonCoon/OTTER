@@ -15,14 +15,23 @@ assert (fltr == '--filter-soft' or fltr == '--filter-medium' or fltr == '--filte
 
 folder = sys.argv[2]
 assert os.path.isdir(folder)
+if folder[-1] != '/':
+    folder += '/'
+output_folder = folder + 'pipeline-out/'
+
+
 
 print('Step 1: Filter vcf...')
 if fltr == '--filter-soft':
     sys.exit(1)
 elif fltr == '--filter-medium':
     cmd = ['ipython', 'scripts/filter.py', '--', '--medium', folder]
-    # sys.exit(1)
+    filtered_vcf = output_folder + 'filtered_medium.vcf'
 else:
     cmd = ['ipython', 'scripts/filter.py', '--', '--hard', folder]
+    filtered_vcf = output_folder + 'filtered_hard.vcf'
+sp.run(cmd, check=True)
 
+print('Step 2: Annotate filtered vcf...')
+cmd = ['ipython', 'scripts/snpeff_variantcalling.py', filtered_vcf, output_folder]
 sp.run(cmd, check=True)

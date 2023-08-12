@@ -21,11 +21,12 @@ test:
 clean:
 	rm -f tmp/*
 	rm -rf example_data/BH_2/pipeline-out/
-	rm -f bin
+
+.PHONY: cleanal
+cleanall: clean
+	rm -rf bin
+	rm -f tags
 
 .PHONY: tags
 tags:
 	ctags -R . --languages=python,sh
-
-cleanall: clean
-	rm tags

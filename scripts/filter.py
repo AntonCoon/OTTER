@@ -6,8 +6,6 @@ import scripts.settings as settings
 import importlib
 importlib.reload(settings)
 
-print(sys.argv)
-
 verbose = True
 LEVEL = sys.argv[1]
 assert LEVEL in ('--soft', '--hard', '--medium')
