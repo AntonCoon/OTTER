@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
 import os
 import sys
 import subprocess as sp
@@ -8,8 +5,6 @@ import subprocess as sp
 import scripts.settings as settings
 import importlib
 importlib.reload(settings)
-
-# In[99]:
 
 
 import pandas
@@ -27,12 +22,12 @@ from matplotlib import pyplot as plt
 
 seaborn.set_style("whitegrid")
 
-# In[353]:
 
 second_patient_path = Path(sys.argv[1])
 patient = second_patient_path.stem.lower()
-results_folder = second_patient_path / Path('pipeline-out')
-os.makedirs(results_folder, exist_ok=True)
+results_folder = sys.argv[2]
+if results_folder[-1] != '/':
+    results_folder += '/'
 
 
 allele_frequency_first_time_point = defaultdict(list)
@@ -51,23 +46,13 @@ for ts in range(1, 6):
             allele_frequency_first_time_point[key].append((ts, record.INFO["AF"]))
 
 
-# In[354]:
-
 
 time_point_amount = []
 
 
-# In[355]:
-
 
 for k, v in allele_frequency_first_time_point.items():
     time_point_amount.append(len({tp for tp, _ in v}))
-
-
-# In[356]:
-
-
-# In[357]:
 
 
 not_rear_mut = defaultdict(list)
@@ -79,7 +64,6 @@ for k, v in allele_frequency_first_time_point.items():
         not_rear_mut[amount].append(("_".join(map(str, sorted({tp for tp, _ in v}))), name))
 
 
-# In[358]:
 
 
 with open(f"{settings.TMP_FOLDER}/not_rare_{patient.lower()}.csv", "w") as nr_file:
@@ -88,7 +72,6 @@ with open(f"{settings.TMP_FOLDER}/not_rare_{patient.lower()}.csv", "w") as nr_fi
             nr_file.write(f"{amount}, {points}, {name}\n")
 
 
-# In[359]:
 
 
 all_mutations_are_presented = dict()
@@ -102,13 +85,11 @@ for k, v in allele_frequency_first_time_point.items():
         all_mutations_are_presented[name] = freqs
 
 
-# In[360]:
 
 
 ordered_names = list(all_mutations_are_presented.keys())
 
 
-# In[361]:
 
 
 a_freqs = [[] for _ in range(len(ordered_names))]
@@ -119,13 +100,11 @@ if not a_freqs:
     print("Not enough mutations found for correlation clustering analysis...")
     sys.exit(0)
 
-# In[362]:
 
 
 a_freqs = numpy.array(a_freqs)
 
 
-# In[363]:
 
 
 _min = numpy.min(a_freqs, axis=1)[numpy.newaxis].T
@@ -133,19 +112,15 @@ _max = numpy.max(a_freqs, axis=1)[numpy.newaxis].T
 a_freqs = (a_freqs - _min) / (_max - _min)
 
 
-# In[364]:
 
 
 freq_norm_dict = {ordered_names[idx]: freqs for idx, freqs in enumerate(a_freqs)}
 
 
-# In[365]:
 
 
 d = pandas.DataFrame(data=a_freqs.T, columns=ordered_names)
 
-
-# In[366]:
 
 
 corr = d.corr()
@@ -167,7 +142,6 @@ plt.savefig(f"{str(results_folder)}/bh_2_correlation.pdf", bbox_inches = 'tight'
 plt.close()
 
 
-# In[369]:
 
 
 labels = ordered_names
@@ -230,158 +204,4 @@ with open(output_vcf, 'w') as fout:
 cmd = ['ipython', 'scripts/snpeff_variantcalling.py', output_vcf, str(results_folder)]
 print(' '.join(cmd))
 sp.run(cmd, check=True)
-
-# skip following cells
-sys.exit()
-
-# In[325]:
-
-
-[idx for idx, name in enumerate(list(temp.values())) if name == "chr8_32685712_C_SNV_T" or name == "chr21_41473456_A_SNV_G"]
-
-
-# In[327]:
-
-
-for name in list(temp.values())[71:74]:
-    plt.plot(freq_norm_dict[name])
-
-
-# In[ ]:
-
-
-
-
-
-# In[264]:
-
-
-plt.plot(freq_norm_dict["chr15_87963853_T_SNV_A"])
-plt.plot(freq_norm_dict["chr1_11121264_C_SNV_T"])
-
-
-# In[217]:
-
-
-groups = [list(temp.values())[:10], list(temp.values())[10:17], list(temp.values())[17:]]
-
-
-# In[218]:
-
-
-first_group = {
-    "mutation": [],
-    "frequency": [],
-    "point": [],
-}
-
-for name in groups[0]:
-    allele_freq_line = list(freq_norm_dict[name])
-    first_group["mutation"].extend([name] * len(allele_freq_line))
-    first_group["frequency"].extend(allele_freq_line)
-    first_group["point"].extend(list(range(1, len(allele_freq_line) + 1)))
-
-
-# In[219]:
-
-
-plt.figure(figsize=(12,8))
-ax = seaborn.lineplot(
-    pandas.DataFrame.from_dict(first_group),
-    x="point",
-    y="frequency",
-    hue="mutation",
-    style="mutation",
-    markers=["o"] * 10
-)
-seaborn.move_legend(ax, "upper left", bbox_to_anchor=(1, 1))
-
-
-# In[220]:
-
-
-second_group = {
-    "mutation": [],
-    "frequency": [],
-    "point": [],
-}
-
-for name in groups[1]:
-    allele_freq_line = list(freq_norm_dict[name])
-    second_group["mutation"].extend([name] * len(allele_freq_line))
-    second_group["frequency"].extend(allele_freq_line)
-    second_group["point"].extend(list(range(1, len(allele_freq_line) + 1)))
-
-
-# In[221]:
-
-
-plt.figure(figsize=(12,8))
-ax = seaborn.lineplot(
-    pandas.DataFrame.from_dict(second_group),
-    x="point",
-    y="frequency",
-    hue="mutation",
-    style="mutation",
-    markers=["o"] * len(groups[1])
-)
-seaborn.move_legend(ax, "upper left", bbox_to_anchor=(1, 1))
-
-
-# In[222]:
-
-
-third_group = {
-    "mutation": [],
-    "frequency": [],
-    "point": [],
-}
-
-for name in groups[2]:
-    allele_freq_line = list(freq_norm_dict[name])
-    third_group["mutation"].extend([name] * len(allele_freq_line))
-    third_group["frequency"].extend(allele_freq_line)
-    third_group["point"].extend(list(range(1, len(allele_freq_line) + 1)))
-
-
-# In[223]:
-
-
-plt.figure(figsize=(12,8))
-ax = seaborn.lineplot(
-    pandas.DataFrame.from_dict(third_group),
-    x="point",
-    y="frequency",
-    hue="mutation",
-    style="mutation",
-    markers=["o"] * len(groups[2])
-)
-seaborn.move_legend(ax, "upper left", bbox_to_anchor=(1, 1))
-
-
-# In[224]:
-
-
-plt.figure(figsize=(12,8))
-ax = seaborn.lineplot(
-    pandas.DataFrame.from_dict(first_group),
-    x="point",
-    y="frequency",
-)
-ax = seaborn.lineplot(
-    pandas.DataFrame.from_dict(second_group),
-    x="point",
-    y="frequency",
-)
-ax = seaborn.lineplot(
-    pandas.DataFrame.from_dict(third_group),
-    x="point",
-    y="frequency",
-)
-
-
-# In[ ]:
-
-
-
 

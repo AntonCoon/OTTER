@@ -15,6 +15,10 @@ patient_folder = sys.argv[2]
 if patient_folder[-1] != '/':
     patient_folder += '/'
 
+output_folder = sys.argv[3]
+if output_folder[-1] != '/':
+    output_folder += '/'
+
 # remove junk from previous runs...
 sp.run(f'rm -rf {settings.TMP_FOLDER}*', shell=True, check=True)
 
@@ -99,7 +103,6 @@ with open(cur_tmp_file, 'r') as fin, open(vcf_output, 'w') as fout:
         vcf_fields = [str(x) for x in vcf_fields]
         fout.write('\t'.join(vcf_fields) + '\n')
 
-output_folder = patient_folder + 'pipeline-out/'
 os.makedirs(output_folder, exist_ok=True)
 
 # sort vcf and place it in output folder

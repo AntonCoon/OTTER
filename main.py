@@ -4,9 +4,10 @@ import subprocess as sp
 
 import scripts.cli as cli
 import importlib
+from pathlib import Path 
 importlib.reload(cli)
 
-if len(sys.argv) != 3:
+if len(sys.argv) != 4:
     cli.print_usage()
     sys.exit(0)
 
@@ -17,9 +18,11 @@ folder = sys.argv[2]
 assert os.path.isdir(folder)
 if folder[-1] != '/':
     folder += '/'
-output_folder = folder + 'pipeline-out/'
 
-
+output_folder = sys.argv[3]
+if output_folder[-1] != '/':
+    output_folder += '/'
+Path(output_folder).mkdir()
 
 filtering = True
 cor_clust = True
@@ -27,13 +30,13 @@ cor_clust = True
 if filtering:
     print('Step 1: Filter vcf...')
     if fltr == '--filter-soft':
-        cmd = ['ipython', 'scripts/filter.py', '--', '--soft', folder]
+        cmd = ['ipython', 'scripts/filter.py', '--', '--soft', folder, output_folder]
         filtered_vcf = output_folder + 'filtered_soft.vcf'
     elif fltr == '--filter-medium':
-        cmd = ['ipython', 'scripts/filter.py', '--', '--medium', folder]
+        cmd = ['ipython', 'scripts/filter.py', '--', '--medium', folder, output_folder]
         filtered_vcf = output_folder + 'filtered_medium.vcf'
     else:
-        cmd = ['ipython', 'scripts/filter.py', '--', '--hard', folder]
+        cmd = ['ipython', 'scripts/filter.py', '--', '--hard', folder, output_folder]
         filtered_vcf = output_folder + 'filtered_hard.vcf'
     sp.run(cmd, check=True)
 
@@ -44,5 +47,6 @@ if filtering:
 
 if cor_clust:
     print('Step 3: Correlation clustering...')
-    cmd = ['ipython', 'scripts/correlation_clustering.py', folder]
+    cmd = ['ipython', 'scripts/correlation_clustering.py', folder, output_folder]
     sp.run(cmd, check=True)
+
