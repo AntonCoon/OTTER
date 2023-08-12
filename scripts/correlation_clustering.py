@@ -115,6 +115,9 @@ a_freqs = [[] for _ in range(len(ordered_names))]
 for idx, name in enumerate(ordered_names):
     a_freqs[idx] = numpy.array(list(map(numpy.mean, all_mutations_are_presented[name])))
 
+if not a_freqs:
+    print("Not enough mutations found for correlation clustering analysis...")
+    sys.exit(0)
 
 # In[362]:
 
