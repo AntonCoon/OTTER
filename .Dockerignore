@@ -1,0 +1,5 @@
+tags
+*.swp
+**/__pycache__/*
+tmp/*
+**/pipeline-out/*
