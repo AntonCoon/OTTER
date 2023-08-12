@@ -1,0 +1,19 @@
+##SnpEffVersion="5.1f (build 2023-07-21 13:58), by Pablo Cingolani"
+##SnpEffCmd="SnpEff  GRCh38.105 -no-intergenic -no-downstream -no-intron -no-upstream filtered_hard.vcf "
+##INFO=<ID=ANN,Number=.,Type=String,Description="Functional annotations: 'Allele | Annotation | Annotation_Impact | Gene_Name | Gene_ID | Feature_Type | Feature_ID | Transcript_BioType | Rank | HGVS.c | HGVS.p | cDNA.pos / cDNA.length | CDS.pos / CDS.length | AA.pos / AA.length | Distance | ERRORS / WARNINGS / INFO' ">
+##INFO=<ID=LOF,Number=.,Type=String,Description="Predicted loss of function effects for this variant. Format: 'Gene_Name | Gene_ID | Number_of_transcripts_in_gene | Percent_of_transcripts_affected'">
+##INFO=<ID=NMD,Number=.,Type=String,Description="Predicted nonsense mediated decay effects for this variant. Format: 'Gene_Name | Gene_ID | Number_of_transcripts_in_gene | Percent_of_transcripts_affected'">
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	TUMOR
+chr1	155910741	.	T	A	20.0	PASS	ANN=A|synonymous_variant|LOW|RIT1|ENSG00000143622|transcript|ENST00000368323.8|protein_coding|2/6|c.21A>T|p.Pro7Pro|171/3390|21/660|7/219||,A|synonymous_variant|LOW|RIT1|ENSG00000143622|transcript|ENST00000609492.1|protein_coding|1/5|c.21A>T|p.Pro7Pro|141/574|21/454|7/150||WARNING_TRANSCRIPT_INCOMPLETE,A|synonymous_variant|LOW|RIT1|ENSG00000143622|transcript|ENST00000368322.7|protein_coding|2/6|c.72A>T|p.Pro24Pro|102/855|72/711|24/236||,A|synonymous_variant|LOW|RIT1|ENSG00000143622|transcript|ENST00000651853.1|protein_coding|2/7|c.21A>T|p.Pro7Pro|226/2419|21/663|7/220||,A|synonymous_variant|LOW|RIT1|ENSG00000143622|transcript|ENST00000651833.1|protein_coding|2/5|c.21A>T|p.Pro7Pro|174/519|21/366|7/121||WARNING_TRANSCRIPT_NO_STOP_CODON	.	.
+chr11	64808164	.	T	C	20.0	PASS	.	.	.
+chr11	108345846	.	A	T	20.0	PASS	ANN=T|missense_variant|MODERATE|ATM|ENSG00000149311|transcript|ENST00000452508.6|protein_coding|59/64|c.8522A>T|p.Asp2841Val|8711/12954|8522/9171|2841/3056||,T|missense_variant|MODERATE|ATM|ENSG00000149311|transcript|ENST00000675843.1|protein_coding|58/63|c.8522A>T|p.Asp2841Val|8672/12915|8522/9171|2841/3056||	.	.
+chr15	88071709	.	G	A	20.0	PASS	.	.	.
+chr17	7674858	.	C	G	20.0	PASS	.	.	.
+chr17	58358858	.	T	C	20.0	PASS	ANN=C|intragenic_variant|MODIFIER|TSPOAP1-AS1|ENSG00000265148|gene_variant|ENSG00000265148|||n.58358858T>C||||||,C|intragenic_variant|MODIFIER|ENSG00000285897|ENSG00000285897|gene_variant|ENSG00000285897|||n.58358858A>G||||||	.	.
+chr21	41505735	.	T	A	20.0	PASS	.	.	.
+chr4	54280239	.	T	G	20.0	PASS	.	.	.
+chr6	117324905	.	T	C	20.0	PASS	.	.	.
+chr6	117326088	.	A	C	20.0	PASS	.	.	.
+chr6	117326130	.	C	T	20.0	PASS	.	.	.
+chr6	157174897	.	G	C	20.0	PASS	ANN=C|synonymous_variant|LOW|ARID1B|ENSG00000049618|transcript|ENST00000636930.2|protein_coding|11/20|c.3396G>C|p.Leu1132Leu|3699/10310|3396/7119|1132/2372||,C|synonymous_variant|LOW|ARID1B|ENSG00000049618|transcript|ENST00000319584.11|protein_coding|9/12|c.1410G>C|p.Leu470Leu|1410/2199|1410/2184|470/727||,C|synonymous_variant|LOW|ARID1B|ENSG00000049618|transcript|ENST00000414678.7|protein_coding|10/19|c.1554G>C|p.Leu518Leu|1554/6528|1554/5277|518/1758||WARNING_TRANSCRIPT_NO_START_CODON,C|synonymous_variant|LOW|ARID1B|ENSG00000049618|transcript|ENST00000635849.1|protein_coding|8/17|c.717G>C|p.Leu239Leu|1304/5830|717/4440|239/1479||,C|synonymous_variant|LOW|ARID1B|ENSG00000049618|transcript|ENST00000637904.1|protein_coding|9/18|c.897G>C|p.Leu299Leu|1398/5913|897/4620|299/1539||,C|synonymous_variant|LOW|ARID1B|ENSG00000049618|transcript|ENST00000637015.1|protein_coding|5/14|c.762G>C|p.Leu254Leu|764/5284|762/4485|254/1494||WARNING_TRANSCRIPT_NO_START_CODON,C|synonymous_variant|LOW|ARID1B|ENSG00000049618|transcript|ENST00000635957.1|protein_coding|4/13|c.351G>C|p.Leu117Leu|351/4048|351/4048|117/1348||WARNING_TRANSCRIPT_INCOMPLETE	.	.
+chr8	32609866	.	T	A	20.0	PASS	.	.	.
