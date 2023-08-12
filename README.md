@@ -1,6 +1,12 @@
 # appl - A PiPeLine
 
-usage (subject to a change):
+Installationg:
+```bash
+git clone git@github.com:AntonCoon/OncoTracker.git
+cd OncoTracker && make
+```
+
+Usage (subject to a change):
 ```bash
 python main.py --filter-soft|--filter-medium|--filter-hard| <path_to_folder_with_vcf_files>
 ```
