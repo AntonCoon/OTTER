@@ -1,0 +1,10 @@
+# The following table is formatted as tab separated values. 
+#GeneName	GeneId	TranscriptId	BioType	variants_impact_HIGH	variants_impact_LOW	variants_impact_MODERATE	variants_impact_MODIFIER	variants_effect_downstream_gene_variant	variants_effect_intron_variant	variants_effect_missense_variant	variants_effect_splice_donor_variant	variants_effect_splice_region_variant	variants_effect_synonymous_variant	variants_effect_upstream_gene_variant
+BIVM-ERCC5	ENSG00000270181	ENST00000639132	protein_coding	0	0	1	0	0	0	1	0	0	0	0
+BIVM-ERCC5	ENSG00000270181	ENST00000639435	protein_coding	0	0	1	0	0	0	1	0	0	0	0
+RIT1	ENSG00000143622	ENST00000368322	protein_coding	0	1	0	0	0	0	0	0	0	1	0
+RIT1	ENSG00000143622	ENST00000368323	protein_coding	0	1	0	0	0	0	0	0	0	1	0
+RIT1	ENSG00000143622	ENST00000539040	protein_coding	0	0	0	1	0	1	0	0	0	0	0
+RIT1	ENSG00000143622	ENST00000609492	protein_coding	0	1	0	0	0	0	0	0	0	1	0
+RIT1	ENSG00000143622	ENST00000651833	protein_coding	0	1	0	0	0	0	0	0	0	1	0
+RIT1	ENSG00000143622	ENST00000651853	protein_coding	0	1	0	0	0	0	0	0	0	1	

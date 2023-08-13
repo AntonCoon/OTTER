@@ -1,0 +1,14 @@
+# The following table is formatted as tab separated values. 
+#GeneName	GeneId	TranscriptId	BioType	variants_impact_HIGH	variants_impact_LOW	variants_impact_MODERATE	variants_impact_MODIFIER	variants_effect_downstream_gene_variant	variants_effect_intron_variant	variants_effect_missense_variant	variants_effect_splice_donor_variant	variants_effect_splice_region_variant	variants_effect_synonymous_variant	variants_effect_upstream_gene_variant
+ARID1B	ENSG00000049618	ENST00000319584	protein_coding	0	1	0	0	0	0	0	0	0	1	0
+ARID1B	ENSG00000049618	ENST00000346085	protein_coding	0	0	0	1	0	1	0	0	0	0	0
+ARID1B	ENSG00000049618	ENST00000350026	protein_coding	0	0	0	1	0	1	0	0	0	0	0
+ARID1B	ENSG00000049618	ENST00000400790	protein_coding	0	0	0	1	0	1	0	0	0	0	0
+ARID1B	ENSG00000049618	ENST00000414678	protein_coding	0	1	0	0	0	0	0	0	0	1	0
+ARID1B	ENSG00000049618	ENST00000635849	protein_coding	0	1	0	0	0	0	0	0	0	1	0
+ARID1B	ENSG00000049618	ENST00000635957	protein_coding	0	1	0	0	0	0	0	0	0	1	0
+ARID1B	ENSG00000049618	ENST00000636930	protein_coding	0	1	0	0	0	0	0	0	0	1	0
+ARID1B	ENSG00000049618	ENST00000637015	protein_coding	0	1	0	0	0	0	0	0	0	1	0
+ARID1B	ENSG00000049618	ENST00000637810	protein_coding	0	0	0	1	0	1	0	0	0	0	0
+ARID1B	ENSG00000049618	ENST00000637904	protein_coding	0	1	0	0	0	0	0	0	0	1	0
+ARID1B	ENSG00000049618	ENST00000647938	protein_coding	0	0	0	1	0	1	0	0	0	0	0
