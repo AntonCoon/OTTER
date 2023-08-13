@@ -7,7 +7,7 @@ cd OncoTracker && make
 ```
 
 Usage:
-``
+```bash
 python main.py --filter-soft|--filter-medium|--filter-hard| <path_to_folder_with_vcf_files>
 ```
 ...created a folder with results in `path_to_folder_with_vcf_files`.
@@ -16,6 +16,7 @@ Available options are:
 - `--filter-soft` leaves all the variants which occur in at least 2 files;
 - `--filter-medium` leaves only variants which are present in both replicas in at least 2 timepoints;
 - `--filter-hard` leaves only variants which are present in all of the subject's files.
+
 
 
 ---
