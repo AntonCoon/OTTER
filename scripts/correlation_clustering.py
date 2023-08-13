@@ -163,7 +163,7 @@ seaborn.heatmap(
     vmin=corr.to_numpy().min(),
     vmax=corr.to_numpy().max(),
 )
-plt.savefig(f"{str(results_folder)}/bh_2_correlation.pdf", bbox_inches = 'tight')
+plt.savefig(f"{str(results_folder)}/{patient.lower()}_correlation.pdf", bbox_inches = 'tight')
 plt.close()
 
 
