@@ -1,0 +1,23 @@
+# The following table is formatted as tab separated values. 
+#GeneName	GeneId	TranscriptId	BioType	variants_impact_HIGH	variants_impact_LOW	variants_impact_MODERATE	variants_impact_MODIFIER	variants_effect_downstream_gene_variant	variants_effect_intron_variant	variants_effect_missense_variant	variants_effect_splice_donor_variant	variants_effect_splice_region_variant	variants_effect_synonymous_variant	variants_effect_upstream_gene_variant
+ATM	ENSG00000149311	ENST00000452508	protein_coding	0	0	1	1	0	1	1	0	0	0	0
+ATM	ENSG00000149311	ENST00000675843	protein_coding	0	0	1	1	0	1	1	0	0	0	0
+FANCL	ENSG00000115392	ENST00000233741	protein_coding	0	0	1	0	0	0	1	0	1	0	0
+FANCL	ENSG00000115392	ENST00000402135	protein_coding	0	0	1	0	0	0	1	0	1	0	0
+FANCL	ENSG00000115392	ENST00000403295	protein_coding	0	0	1	0	0	0	1	0	1	0	0
+FANCL	ENSG00000115392	ENST00000403676	protein_coding	0	0	1	0	0	0	1	0	1	0	0
+FANCL	ENSG00000115392	ENST00000417361	protein_coding	0	0	1	0	0	0	1	0	1	0	0
+FANCL	ENSG00000115392	ENST00000427708	protein_coding	0	0	1	0	0	0	1	0	1	0	0
+FANCL	ENSG00000115392	ENST00000446381	protein_coding	0	0	1	0	0	0	1	0	1	0	0
+FANCL	ENSG00000115392	ENST00000449070	protein_coding	0	0	1	0	0	0	1	0	1	0	0
+MTOR	ENSG00000198793	ENST00000361445	protein_coding	0	1	0	1	0	1	0	0	0	1	0
+MTOR	ENSG00000198793	ENST00000376838	protein_coding	0	1	0	1	0	1	0	0	0	1	0
+SETD2	ENSG00000181555	ENST00000409792	protein_coding	0	0	1	0	0	0	1	0	0	0	0
+SETD2	ENSG00000181555	ENST00000412450	protein_coding	0	0	1	0	0	0	1	0	0	0	0
+SETD2	ENSG00000181555	ENST00000638947	protein_coding	0	0	1	0	0	0	1	0	0	0	0
+SETD2	ENSG00000181555	ENST00000685005	protein_coding	0	0	1	0	0	0	1	0	0	0	0
+SETD2	ENSG00000181555	ENST00000685399	protein_coding	0	0	1	0	0	0	1	0	0	0	0
+SETD2	ENSG00000181555	ENST00000686876	protein_coding	0	0	1	0	0	0	1	0	0	0	0
+SETD2	ENSG00000181555	ENST00000690157	protein_coding	0	0	1	0	0	0	1	0	0	0	0
+SETD2	ENSG00000181555	ENST00000691544	protein_coding	0	0	0	1	0	1	0	0	0	0	0
+SETD2	ENSG00000181555	ENST00000691902	protein_coding	0	0	1	0	0	0	1	0	0	0	0
