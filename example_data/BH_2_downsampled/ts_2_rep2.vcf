@@ -1,0 +1,30 @@
+##fileformat=VCFv4.2
+##FILTER=<ID=snvqual_fdr,Description="SNV Quality Multiple Testing Correction: fdr corr. pvalue < 20.000000">
+##fileDate=20221011
+##source=lofreq call -d 101000 -f /tmp/GRCh38.d1.vd1/GRCh38.d1.vd1.fa --verbose --no-default-filter -b 1 --call-indels -a 0.010000 -C 7 -s -S /tmp/out_normal_stringent.snvs.vcf.gz,/tmp/out_normal_stringent.indels.vcf.gz --no-default-filter -r chr1:11107682-11108786 -o /tmp/lofreq2_call_parallelsR64v9/0.vcf.gz /tmp/tumor.bam 
+##reference=/tmp/GRCh38.d1.vd1/GRCh38.d1.vd1.fa
+##INFO=<ID=DP,Number=1,Type=Integer,Description="Raw Depth">
+##INFO=<ID=AF,Number=1,Type=Float,Description="Allele Frequency">
+##INFO=<ID=SB,Number=1,Type=Integer,Description="Phred-scaled strand bias at this position">
+##INFO=<ID=DP4,Number=4,Type=Integer,Description="Counts for ref-forward bases, ref-reverse, alt-forward and alt-reverse bases">
+##INFO=<ID=INDEL,Number=0,Type=Flag,Description="Indicates that the variant is an INDEL.">
+##INFO=<ID=CONSVAR,Number=0,Type=Flag,Description="Indicates that the variant is a consensus variant (as opposed to a low frequency variant).">
+##INFO=<ID=HRUN,Number=1,Type=Integer,Description="Homopolymer length to the right of report indel position">
+##FILTER=<ID=min_dp_7,Description="Minimum Coverage 7">
+##FILTER=<ID=max_dp_100000,Description="Maximum Coverage 100000">
+##FILTER=<ID=sb_fdr,Description="Strand-Bias Multiple Testing Correction: fdr corr. pvalue > 0.001000">
+##FILTER=<ID=indelqual_fdr,Description="Indel Quality Multiple Testing Correction: fdr corr. pvalue < 10.000000">
+##source_20221011.1=vcf-merge(v0.1.14-12-gcdb80b8) --collapse none /tmp/out_somatic_raw.snvs.vcf.gz /tmp/out_somatic_raw.indels.vcf.gz
+##sourceFiles_20221011.1=0:/tmp/out_somatic_raw.snvs.vcf.gz,1:/tmp/out_somatic_raw.indels.vcf.gz
+##INFO=<ID=SF,Number=.,Type=String,Description="Source File (index to sourceFiles, f when filtered)">
+##INFO=<ID=AC,Number=.,Type=Integer,Description="Allele count in genotypes">
+##INFO=<ID=AN,Number=1,Type=Integer,Description="Total number of alleles in called genotypes">
+##FORMAT=<ID=DP,Number=1,Type=Integer,Description="Raw Depth">
+##FORMAT=<ID=AD,Number=.,Type=Integer,Description="Allelic depths for the ref and alt alleles in the order listed">
+##FORMAT=<ID=SB,Number=1,Type=Integer,Description="Phred-scaled strand bias at this position">
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	TUMOR
+chr1	11108121	.	G	T	21.00	PASS	AF=0.001724;DP4=964,773,1,2;DP=1740;SB=2;SF=0;SOMATIC	DP:AD:SB	1740:1737,3:2
+chr1	11112740	.	G	T	20.00	PASS	AF=0.004587;DP4=316,118,0,2;DP=436;SB=11;SF=0;SOMATIC	DP:AD:SB	436:434,2:11
+chr1	11112833	.	C	G	62.00	PASS	AF=0.002336;DP4=2627,2497,0,12;DP=5138;SB=37;SF=0;SOMATIC	DP:AD:SB	5138:5124,12:37
+chr1	11114470	.	GC	G	23.00	PASS	AF=0.000893;DP4=950,1308,2,0;DP=2240;HRUN=2;INDEL;SB=7;SF=1;SOMATIC	DP:AD:SB	2240:2258,2:7
+chr1	11114524	.	GT	G	43.00	PASS	AF=0.009302;DP4=77,156,1,1;DP=215;HRUN=2;INDEL;SB=0;SF=1;SOMATIC	DP:AD:SB	215:233,2:0
