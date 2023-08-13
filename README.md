@@ -53,4 +53,4 @@ Results consist of
     - `{filtered_LEVEL,corr_clust}_snpEff_genes.txt` - [gene counts summary](https://pcingola.github.io/SnpEff/snpeff/outputsummary/#gene-counts-summary-snpeff_genestxt);
     - `{filtered_LEVEL,corr_clust}_snpEff_summary.html` -  [SnpEff output summary](https://pcingola.github.io/SnpEff/snpeff/outputsummary/#html-summary-snpeff_summaryhtml);
 - `*correlation.pdf` - a heatmap of pairwise correlation used for clustering;
-- `*dendrogram.pdf` - a dengrogram with variants colored by cluster cluster.
+- `*dendrogram.pdf` - a dengrogram with variants colored by cluster color.
