@@ -4,5 +4,6 @@ def print_usage():
     msg = "python main.py --filter-soft|--filter-medium|--filter-hard <path_to_folder_with_vcf_files>"
     print(msg)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     print_usage()
