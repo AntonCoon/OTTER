@@ -1,6 +1,7 @@
 bin
 tags
 *.swp
+*.swo
 **/__pycache__/*
 tmp/*
 **/pipeline-out/*

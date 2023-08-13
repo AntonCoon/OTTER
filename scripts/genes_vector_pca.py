@@ -23,7 +23,7 @@ for f in os.listdir(patient_folder):
 
 path_with_genes = settings.TMP_FOLDER + 'genes/'
 
-run_anno = False
+run_anno = True
 if run_anno:
     os.makedirs(path_with_genes, exist_ok=True)
     sp.run(f"rm -f {path_with_genes}/*", shell=True, check=True)
@@ -424,7 +424,7 @@ for line in range(0, bootstrapped_data_2d.shape[0]):
      )
 
 os.makedirs(patient_folder + 'pipeline-out', exist_ok=True)
-plt.savefig(patient_folder + 'pipeline-out/pca.png')
+plt.savefig(patient_folder + 'pipeline-out/pca.pdf')
 plt.close()
 
 # skip following cells..........

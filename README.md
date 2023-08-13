@@ -3,7 +3,7 @@
 # OTTER 🦦: Oncology Traces TrackER
 A Biohack 2023 project - Analysis of multiple time points of cfDNA from plasma of patients with oncological diagnoses
 
-🦦 consits of filtering, clusterization and variant calling.
+🦦 consits of filtering, clusterization, variant calling and trajectory visualizations.
 
 ## Installation
 ```bash
@@ -17,6 +17,7 @@ cd OncoTracker && make
 - jre;
 - python modules:
     - ipython;
+    - torch;
     - pandas;
     - scipy;
     - vcfpy;
