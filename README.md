@@ -48,9 +48,9 @@ Available options are:
 Results consist of
 - `filtered_LEVEL.vcf` - filtered variants;
 - `corr_cust.vcf` - variants filtered and clustered by correlated in variant allele frequency dynamics (here only variants present in all timepoints are considered);
-- (SnpEff)[https://github.com/pcingola/SnpEff] output:
+- [SnpEff](https://github.com/pcingola/SnpEff) output:
     - `{filtered_LEVEL,corr_clust}_snpEff-ann.vcf` - annotated variants;
-    - `{filtered_LEVEL,corr_clust}_snpEff_genes.txt` - (gene counts summary)[https://pcingola.github.io/SnpEff/snpeff/outputsummary/#gene-counts-summary-snpeff_genestxt];
-    - `{filtered_LEVEL,corr_clust}_snpEff_summary.html` -  ()[https://pcingola.github.io/SnpEff/snpeff/outputsummary/#html-summary-snpeff_summaryhtml];
+    - `{filtered_LEVEL,corr_clust}_snpEff_genes.txt` - [gene counts summary](https://pcingola.github.io/SnpEff/snpeff/outputsummary/#gene-counts-summary-snpeff_genestxt);
+    - `{filtered_LEVEL,corr_clust}_snpEff_summary.html` -  [SnpEff output summary](https://pcingola.github.io/SnpEff/snpeff/outputsummary/#html-summary-snpeff_summaryhtml);
 - `*correlation.pdf` - a heatmap of pairwise correlation used for clustering;
 - `*dendrogram.pdf` - a dengrogram with variants colored by cluster cluster.
