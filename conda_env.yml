@@ -2,7 +2,6 @@ name: otter
 channels:
   - conda-forge
   - defaults
-  - bioconda
 dependencies:
   - python=3.8
   - yaml
@@ -13,5 +12,7 @@ dependencies:
   - seaborn=0.11.2
   - jupyter
   - scikit-learn=1.0.1
+  - cpuonly
+  - pytorch
+  - tqdm
   - vcfpy
-prefix: /home/iam28th/miniconda3/envs/otter
